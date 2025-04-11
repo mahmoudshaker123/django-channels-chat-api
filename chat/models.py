@@ -6,12 +6,12 @@ from django.utils import timezone
 
 class Room(models.Model):
     room_uuid= models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    user = models.ForeignKey(User ,on_delete=models.CASCADE)
+    user= models.ManyToManyField(User)
     room_name = models.CharField(max_length=100 , unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.username + " owner " + self.room_name
+        return f"Room: {self.room_name}"
 
 class Message(models.Model):
     message_uuid= models.UUIDField(default=uuid.uuid4, editable=False, unique=True)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="rooms-list">
+        <h2>غرف الدردشة</h2>
+        <ul id="rooms-ul"></ul>
+    </div>
+    <div id="room-chat" style="display:none;">
+        <h2 id="room-name"></h2>
+        <ul id="messages-list"></ul>
+        <div id="user-selection">
+            <label for="user-select">اختر المستخدم:</label>
+            <select id="user-select"></select>
+        </div>
+        <textarea id="message-input" placeholder="اكتب رسالتك هنا..."></textarea>
+        <button id="send-message-btn">إرسال</button>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

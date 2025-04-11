@@ -1,0 +1,139 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Rooms list styling */
+#rooms-list {
+    width: 30%;
+    float: left;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#rooms-list h2 {
+    font-size: 18px;
+    color: #075e54;
+    margin-bottom: 10px;
+}
+
+#rooms-ul {
+    list-style: none;
+    padding: 0;
+}
+
+#rooms-ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#rooms-ul li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Chat room styling */
+#room-chat {
+    width: 65%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+#room-name {
+    background-color: #075e54;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#messages-list {
+    flex: 1;
+    list-style: none;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #e5ddd5;
+}
+
+#messages-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+#messages-list li:nth-child(odd) {
+    background-color: #dcf8c6;
+    align-self: flex-start;
+}
+
+#messages-list li:nth-child(even) {
+    background-color: #ffffff;
+    align-self: flex-end;
+}
+
+/* Message input styling */
+#message-input {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: calc(100% - 80px);
+    border-radius: 5px;
+    margin: 10px;
+    outline: none;
+}
+
+#send-message-btn {
+    background-color: #075e54;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+#send-message-btn:hover {
+    background-color: #0b7a61;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
