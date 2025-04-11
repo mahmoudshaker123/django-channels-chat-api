@@ -41,6 +41,11 @@ def get_or_create_private_room(user1, user2):
         return None  # أو قم بإرجاع رسالة خطأ مناسبة
 
 
+def create_room(name):
+    room_name = slugify(name)  # تحويل اسم الغرفة إلى صيغة مقبولة
+    return Room.objects.create(room_name=room_name)
+
+
 class ChatRoomViewSet(ModelViewSet):
     queryset = Room.objects.all()
     serializer_class = ChatRoomSerializer

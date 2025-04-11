@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         roomNameElement.textContent = roomName;
 
         // إنشاء WebSocket
-        chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${roomName}/`);
+        chatSocket = new WebSocket(`ws://${window.location.host}/ws/chat/${encodeURIComponent(roomName)}/`);
 
         // استقبال الرسائل من WebSocket
         chatSocket.onmessage = function(e) {
