@@ -20,7 +20,7 @@ def chat_ui(request):
 
 
 def get_users(request):
-    users = User.objects.values('id', 'username')  # جلب معرف وأسماء المستخدمين
+    users = User.objects.values('id', 'username')  
     return JsonResponse(list(users), safe=False)
 
 
@@ -33,23 +33,23 @@ def get_or_create_private_room(user1, user2):
         if rooms.exists():
             return rooms.first()
 
-        room_name = slugify(f'{user1.username}_{user2.username}')  # تحويل اسم الغرفة إلى صيغة مقبولة
+        room_name = slugify(f'{user1.username}_{user2.username}')
         room = Room.objects.create(room_name=room_name)
         room.user.set([user1, user2])
         return room
     except IntegrityError:
-        return None  # أو قم بإرجاع رسالة خطأ مناسبة
+        return None 
 
 
 def create_room(name):
-    room_name = slugify(name)  # تحويل اسم الغرفة إلى صيغة مقبولة
+    room_name = slugify(name)   
     return Room.objects.create(room_name=room_name)
 
 
 class ChatRoomViewSet(ModelViewSet):
     queryset = Room.objects.all()
     serializer_class = ChatRoomSerializer
-    permission_classes = [AllowAny]  # السماح للجميع بالوصول
+    permission_classes = [AllowAny]    
 
 class ChatMessageViewSet(ModelViewSet):
     queryset = Message.objects.select_related('user', 'room').order_by('-created_at')
@@ -57,7 +57,7 @@ class ChatMessageViewSet(ModelViewSet):
 
 
     def get_queryset(self):
-        room_uuid = self.request.query_params.get('room_uuid', None)  # استخدم room_uuid بدلاً من room_id
+        room_uuid = self.request.query_params.get('room_uuid', None)   
         if room_uuid:
             return self.queryset.filter(room__room_uuid=room_uuid)
         return self.queryset
